@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Arvin Kushwaha</title>
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="/static/assets/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Source+Code+Pro&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/tailwind.min.css">
+    <link rel="stylesheet" href="/static/assets/fontawesome-free-5.15.2-web/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body class="overflow-x-hidden w-screen h-screen hidden">
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- <div id="background" class="bg-gray-700 w-screen h-screen top-0 left-0 fixed z-0 overflow-x-hidden"></div> -->
+
+    <div class="tall absolute top-0 left-0 w-screen" id="tall"></div>
+
+    <div class="panel fixed back w-screen h-screen z-0 show" id="panel1">
+        <div id="iAm" class="z-50 relative text-white text-5xl select-none">
+            <span>I am&nbsp;</span><span id="quoteLine" class="text-green-500"></span>
+        </div>
+    
+        <i class="fas fa-angle-right relative lefty" name="panel2"></i>
+    </div>
+    <div class="panel fixed back w-screen h-screen z-0" id="panel2">
+        <i class="fas fa-angle-left relative righty" name="panel1"></i>
+        <i class="fas fa-angle-down relative downy" name="panel3"></i>
+    </div>
+    <div class="panel fixed back w-screen h-screen z-0" id="panel3">
+        <i class="fas fa-angle-up relative upy" name="panel2"></i>
+        <i class="fas fa-angle-right relative lefty" name="panel4"></i>
+    </div>
+    <div class="panel fixed back w-screen h-screen z-0" id="panel4">
+        <i class="fas fa-angle-left relative righty" name="panel3"></i>
+        <!-- <i class="fas fa-angle-down relative downy" name="panel5"></i> -->
+    </div>
+
+    <!-- <div id="anim-background" class="fixed w-screen h-screen top-0 left-0 bg-transparent z-0">
+    </div> -->
+
+    <header class="text-white fixed w-screen text-center">
+        
+            <div class="wrap_title z-20">
+                <a href="/"><span id="title" class="p-4 mt-6 mb-3 font-bold text-4xl">Arvin Kushwaha</span></a>
+            </div>
+            <br>
+            <div class="wrap_nav z-0">
+                <nav class="text-xl flex justify-center pointer-events-none" id="menu_nav">
+                    <div class="span_wrap mx-3 pointer-events-auto active"><span class="px-7 py-2" name="panel1">Home</span></div>
+                    <div class="span_wrap mx-3 pointer-events-auto"><span class="px-7 py-2" name="panel2">Projects</span></div>
+                    <div class="span_wrap mx-3 pointer-events-auto"><span class="px-7 py-2" name="panel3">Blog</span></div>
+                    <div class="span_wrap mx-3 pointer-events-auto"><span class="px-7 py-2" name="panel4">Contact</span></div>
+                </nav>
+            </div>
+        
+    </header>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="/static/js/index.js" async defer></script>
+</body>
+
+</html>
