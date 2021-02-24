@@ -28,6 +28,20 @@ body {
     width: fit-content;
 }
 
+#mob-menu {
+    transform: translate(100vw, -50%);
+    transition: transform 1s ease-in-out;
+}
+
+#mob-menu-panel {
+    transition: transform 0.4s linear;
+    transform: translateX(100vw);
+}
+
+#mob-menu-panel.show {
+    transform: translateX(0);
+}
+
 #menu_nav span {
     transition: transform 0.2s ease-in-out;
 }
@@ -55,8 +69,12 @@ body {
     transform: translateX(calc(50vw - 50%));
 }
 
+#mob-menu.show {
+    transform: translate(0, -50%);
+}
+
 #title.collapsed {
-    transform: translateX(calc(363.78px/2.0 - 50% + 3vw));
+    transform: translateX(3vw);
 }
 
 #menu_nav.collapsed {

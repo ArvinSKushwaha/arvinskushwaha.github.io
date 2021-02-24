@@ -1,10 +1,7 @@
 let quoteLines = [
     'a Student',
     'a Developer',
-    'a Leader',
-    'an Educator',
-    'a Scientist',
-    'a Learner'
+    'really gay',
 ];
 
 let addBit = true;
@@ -18,50 +15,61 @@ let currRepr = "";
 
 let getScrollHeight = () => { return window.scrollY };
 
+let show_panel = (panel_num) => {
+    let panels = document.getElementsByClassName("panel");
+    let panel_links = document.getElementsByClassName("span_wrap");
+    for (let index = 0; index < document.getElementsByClassName("panel").length; index++) {
+        if (index < Math.floor(panel_num)) {
+            $(panels[index]).removeClass('show');
+            $(panels[index]).addClass('exit');
+        }
+        else if (Math.floor(panel_num) == index) {
+            $(panels[index]).removeClass('exit');
+            $(panels[index]).addClass('show');
+        }
+        else {
+            $(panels[index]).removeClass('show exit');
+        }
+        if (Math.floor(panel_num) == index) {
+            $(panel_links[index]).addClass('active');
+        }
+        else {
+            $(panel_links[index]).removeClass('active');
+        }
+    }
+    if (panel_num > 0) {
+        $("#title, #menu_nav").addClass("collapsed");
+        $(".span_wrap").addClass("hide_border");
+    }
+    else {
+        $("#title, #menu_nav").removeClass("collapsed");
+        $(".span_wrap").removeClass("hide_border");
+    }
+}
+
 $(
     () => {
+        let curr_panel = 0;
+
+        let hammertime = new Hammer(document.querySelector('#panel1'));
+        hammertime.on('swipe', (ev) => {
+            console.log(ev);
+        });
         let panels = document.getElementsByClassName("panel");
         $('div#tall.tall').height(window.innerHeight * panels.length);
         for (let index = 0; index < document.getElementsByClassName("panel").length; index++) {
             $(panels[index]).addClass(['up_left_start', 'left_up_start'][index % 2]);
         }
 
-        setTimeout(() => { $("#title, #menu_nav").addClass("show"); });
+        setTimeout(() => { $("#title, #menu_nav, #mob-menu").addClass("show"); });
 
         $(document).bind('scroll', () => {
             let h = getScrollHeight();
             let panel_num = h / window.innerHeight;
-            let panels = document.getElementsByClassName("panel");
-            let panel_links = document.getElementsByClassName("span_wrap");
-            for (let index = 0; index < document.getElementsByClassName("panel").length; index++) {
-                if (index < Math.floor(panel_num)) {
-                    $(panels[index]).removeClass('show');
-                    $(panels[index]).addClass('exit');
-                }
-                else if (Math.floor(panel_num) == index) {
-                    $(panels[index]).removeClass('exit');
-                    $(panels[index]).addClass('show');
-                }
-                else {
-                    $(panels[index]).removeClass('show exit');
-                }
-                if (Math.floor(panel_num) == index)
-                {
-                    $(panel_links[index]).addClass('active');
-                }
-                else {
-                    $(panel_links[index]).removeClass('active');
-                }
-            }
-            if (h > 0) {
-                $("#title, #menu_nav").addClass("collapsed");
-                $(".span_wrap").addClass("hide_border");
-            }
-            else {
-                $("#title, #menu_nav").removeClass("collapsed");
-                $(".span_wrap").removeClass("hide_border");
-            }
+            curr_panel = panel_num;
+            show_panel(panel_num);
         });
+
         setInterval(() => {
             if (pausePlay) {
                 currWait++;
@@ -98,13 +106,29 @@ $(
         });
 
         $(".span_wrap").bind('click', (e) => {
-            $(document).scrollTop((parseInt($(e.target).attr('name').slice(5)) - 1) * window.innerHeight);
+            let num = (parseInt($(e.target).attr('name').slice(5)) - 1)
+            $(document).scrollTop(num * window.innerHeight + (num ? window.innerHeight/2.0 : 0));
+        });
+
+        $("#mob-menu-panel > span").bind('click', (e) => {
+            console.log("Oui");
+            let num = (parseInt($(e.target).attr('name').slice(5)) - 1)
+            $(document).scrollTop(num * window.innerHeight + (num ? window.innerHeight/2.0 : 0));
         });
 
         $("i[name]").bind('click', (e) => {
-            $(document).scrollTop((parseInt($(e.target).attr('name').slice(5)) - 1) * window.innerHeight);
+            let num = (parseInt($(e.target).attr('name').slice(5)) - 1)
+            $(document).scrollTop(num * window.innerHeight + (num ? window.innerHeight/2.0 : 0));
         });
 
         $("body").removeClass("hidden");
+
+        $("#mob-menu").bind('click', (e) => {
+            $("#mob-menu-panel").toggleClass("show");
+        });
+
+        $("#mob-menu-panel > span").bind('click', (e) => {
+            $("#mob-menu-panel").removeClass("show");
+        });
     }
 );
