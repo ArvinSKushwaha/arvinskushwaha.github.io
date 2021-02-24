@@ -49,6 +49,15 @@ let show_panel = (panel_num) => {
 
 $(
     () => {
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+            document.body.classList.add("resize-animation-stopper");
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                document.body.classList.remove("resize-animation-stopper");
+            }, 400);
+        });
+
         let curr_panel = 0;
 
         let hammertime = new Hammer(document.querySelector('#panel1'));
@@ -107,18 +116,18 @@ $(
 
         $(".span_wrap").bind('click', (e) => {
             let num = (parseInt($(e.target).attr('name').slice(5)) - 1)
-            $(document).scrollTop(num * window.innerHeight + (num ? window.innerHeight/2.0 : 0));
+            $(document).scrollTop(num * window.innerHeight + (num ? window.innerHeight / 2.0 : 0));
         });
 
         $("#mob-menu-panel > span").bind('click', (e) => {
             console.log("Oui");
             let num = (parseInt($(e.target).attr('name').slice(5)) - 1)
-            $(document).scrollTop(num * window.innerHeight + (num ? window.innerHeight/2.0 : 0));
+            $(document).scrollTop(num * window.innerHeight + (num ? window.innerHeight / 2.0 : 0));
         });
 
         $("i[name]").bind('click', (e) => {
             let num = (parseInt($(e.target).attr('name').slice(5)) - 1)
-            $(document).scrollTop(num * window.innerHeight + (num ? window.innerHeight/2.0 : 0));
+            $(document).scrollTop(num * window.innerHeight + (num ? window.innerHeight / 2.0 : 0));
         });
 
         $("body").removeClass("hidden");
