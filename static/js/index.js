@@ -1,7 +1,8 @@
 let quoteLines = [
     'a Student',
     'a Developer',
-    'really gay',
+    'a Leader',
+    'an Innovator',
 ];
 
 let addBit = true;
