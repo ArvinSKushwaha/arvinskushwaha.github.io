@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords"
+        content="Programming, Science, Physics, Rust, Computer Science, Blog, Projects, Arvin Kushwaha">
+    <meta name="author" content="Arvin Kushwaha">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="/site.css" />
+</head>
+
+<body>
+    <!-- <div id="left-sidebar"> -->
+    <!--  -->
+    <!-- </div> -->
+    <div id="full-width-rewrap">
+    <div id="full-wrapper">
+        <header id="menu-alpha_beta_theta">
+            <div id="arvin-name" onclick="window.location = '/index.html'">Arvin Kushwaha</div>
+            <div id="menu-wrapper">
+                <div class="menu-entry">
+                    <div class="menu-entry-name" onclick="window.location = '/index.html'">About Me</div>
+                </div>
+                <div class="menu-entry">
+                    <div class="menu-entry-name" onclick="window.location = 'https://github.com/ArvinSKushwaha'">
+                        Projects
+                    </div>
+                </div>
+                <div class="menu-entry">
+                    <div class="menu-entry-name" onclick="window.location = '/blog.html'">Blog</div>
+                </div>
+            </div>
+
+        </header>
+        <div id="body_wrapper">
+            <!-- 0 -->
+<h2>Welcome to my humble abode!</h2>
+<p>Hi, I'm Arvin Kushwaha! I'm a sophomore at North Carolina State University
+working towards a double major in Computer Science and Physics.</p>
+<p>This here, as you may already know, is my website! I use this space to talk
+about some fun stuff I'm working on and learning about. Feel free to explore!</p>
+<p>I highly recommend checking out my <a href="/blog.html">blog</a> (see menu bar) if you want to learn
+a bunch of new, possibly-interesting information or my projects (again, see menu bar)
+if you want to see what I've been working on!</p>
+<p>$$ \int\limits_0^\infty x^2 dx $$</p>
+
+        </div>
+    </div>
+        <div id="menu-base">
+            <a href="https://github.com/ArvinSKushwaha/"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:arvin.singh.kushwaha@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+    </div>
+    <!-- <div id="right-sidebar"> -->
+    <!--  -->
+    <!-- </div> -->
+    <script>
+        window.onload = () => {
+            const activatible = Array.from(document.getElementsByClassName("menu-entry"));
+            const regex = new RegExp("<!-- (?<activity>\\d*) -->")
+            let txt = document.getElementById("body_wrapper").innerHTML
+            let match = txt.match(regex);
+            if (match !== null) {
+                let i = parseInt(match[1]);
+                activatible.forEach(e => {
+                    e.classList.remove("active");
+                })
+                activatible[i].classList.add("active");
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                // • rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+</body>
+
+</html>

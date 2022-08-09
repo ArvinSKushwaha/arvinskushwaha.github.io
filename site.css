@@ -1,0 +1,156 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2a2828;
+    color: white;
+}
+
+
+#menu-alpha_beta_theta {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 15pt;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-family: "Roboto", sans-serif;
+}
+
+#menu-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+#menu-wrapper > .menu-entry {
+    display: block;
+}
+
+.menu-entry {
+    display: inline-block;
+    font-size: 12pt;
+    margin-left: 2rem;
+}
+
+.menu-entry::after {
+    content: "";
+    display: block;
+    width: 0;
+    border: 1px solid transparent;
+    transition: width 0.2s ease, border 0.4s ease;
+}
+
+.menu-entry:hover::after {
+    width: 100%;
+    border: 1px solid white;
+    transition: width 0.2s ease, border 0.2s ease;
+}
+
+.menu-entry.active::after {
+    width: 100%;
+    border: 1px solid white;
+    transition: width 0.2s ease, border 0.2s ease;
+}
+
+#body_wrapper {
+    color: white;
+    width: 100%;
+}
+
+/* #left-sidebar { */
+/*     width: 10vw; */
+/*     left: 20vw; */
+/*     position: absolute; */
+/* } */
+
+#full-width-rewrap {
+    width: 100vw;
+    overflow-y: auto;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-self: space-between;
+}
+
+#full-wrapper {
+    width: 40%;
+    margin-left: 30%;
+}
+
+/* #right-sidebar { */
+/*     width: 10vw; */
+/*     right: 20vw; */
+/*     position: absolute; */
+/* } */
+
+a {
+    text-decoration: none;
+    font-style: italic;
+}
+
+#menu-base {
+    border-top: 1px solid #5d5d5d;
+}
+
+#menu-base > a {
+    margin: 1rem;
+    text-decoration: none;
+    font-style: normal;
+    color: #ffffff;
+}
+
+a:link {
+    color: #eeeeee;
+}
+
+a:visited {
+    color: #cccccc;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+#menu-base {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+pre {
+    padding: 0.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+    #full-wrapper {
+        width: 70%;
+        margin-left: 15%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    #menu-wrapper {
+        flex-wrap: wrap;
+    }
+    #menu-wrapper > .menu-entry {
+        font-size: 10pt;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #full-wrapper {
+        width: unset;
+        margin-left: 0%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
